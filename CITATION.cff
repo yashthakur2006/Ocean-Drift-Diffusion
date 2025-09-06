@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the associated preprint."
+title: "Spatiotemporal Diffusion Models for Probabilistic Forecasting of Ocean Drift"
+authors:
+  - family-names: Thakur
+    given-names: Yash
+date-released: 2025-09-06
+version: 0.1.0

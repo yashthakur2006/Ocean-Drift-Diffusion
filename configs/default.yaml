@@ -1,0 +1,24 @@
+seed: 42
+device: "cuda"  # "cpu" or "cuda"
+epochs: 50
+batch_size: 32
+lr: 2e-4
+weight_decay: 0.0
+grad_clip: 1.0
+amp: true
+
+# Data
+seq_len: 96      # input length
+horizon: 72      # forecast horizon
+grid_size: 128   # discretization for lat/lon grid mapping
+num_workers: 2
+
+# Diffusion
+timesteps: 1000
+beta_schedule: "cosine"  # "linear" or "cosine"
+sample_steps: 50
+
+# Model
+dim: 64
+dim_mults: [1, 2, 4]
+dropout: 0.1
