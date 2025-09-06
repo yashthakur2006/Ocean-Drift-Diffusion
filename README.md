@@ -1,4 +1,4 @@
-🌊 Ocean Drift Diffusion
+### Ocean Drift Diffusion
 
 A lightweight spatiotemporal diffusion model for predicting ocean currents and plastic drift
 
@@ -7,7 +7,7 @@ A lightweight spatiotemporal diffusion model for predicting ocean currents and p
 
 
 
-🚀 Overview
+#🚀 Overview
 
 This repository implements a spatiotemporal diffusion model (~450 lines of PyTorch) to forecast ocean current trajectories and plastic drift.
 
