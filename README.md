@@ -1,62 +1,63 @@
-# Ocean Drift Diffusion
+# 🌊 Ocean Drift Diffusion
+*A Lightweight Spatiotemporal Diffusion Model for Predicting Ocean Currents and Plastic Drift*
 
-A lightweight spatiotemporal diffusion model for predicting ocean currents and plastic drift
+[![Stars](https://img.shields.io/github/stars/yashthakur2006/Ocean-Drift-Diffusion?style=social)](https://github.com/yashthakur2006/Ocean-Drift-Diffusion/stargazers)
+[![Forks](https://img.shields.io/github/forks/yashthakur2006/Ocean-Drift-Diffusion?style=social)](https://github.com/yashthakur2006/Ocean-Drift-Diffusion/network/members)
+[![Issues](https://img.shields.io/github/issues/yashthakur2006/Ocean-Drift-Diffusion)](https://github.com/yashthakur2006/Ocean-Drift-Diffusion/issues)
+[![License](https://img.shields.io/github/license/yashthakur2006/Ocean-Drift-Diffusion)](LICENSE)
+[![arXiv](https://img.shields.io/badge/arXiv-pending-orange)](#-citation)
 
+> **TL;DR**: ~450 lines of PyTorch implementing a DDPM-style **spatiotemporal diffusion** model to forecast **ocean currents & plastic drift** from grid data. Minimal, hackable, research-ready.
 
+---
 
+## 📚 Table of Contents
+- [Highlights](#-highlights)
+- [Abstract](#-abstract)
+- [Quickstart](#-quickstart)
+- [Data Format](#-data-format)
+- [Configuration](#-configuration)
+- [Python API](#-python-api)
+- [CLI Usage](#-cli-usage)
+- [Visualization](#-visualization)
+- [Results & Benchmarks](#-results--benchmarks)
+- [Reproducibility](#-reproducibility)
+- [Project Structure](#-project-structure)
+- [Roadmap](#-roadmap)
+- [Contributing](#-contributing)
+- [License](#-license)
+- [Citation](#-citation)
+- [FAQ • Troubleshooting • Acknowledgements](#-faq--troubleshooting--acknowledgements)
 
+---
 
+## 🔥 Highlights
+- **Compact**: ~450 LOC PyTorch core; easy to read & extend.
+- **Spatiotemporal diffusion**: DDPM denoising over time-indexed grids.
+- **No physics priors**: Purely data-driven baseline; plug any gridded current source.
+- **Metrics included**: ADE/FDE, RMSE, plus trajectory visualization.
+- **Batteries included**: train/eval scripts, config system, demo mode.
 
-### Overview
+---
 
-This repository implements a spatiotemporal diffusion model (~450 lines of PyTorch) to forecast ocean current trajectories and plastic drift.
+## 🧠 Abstract
+**Ocean Drift Diffusion** is a minimal, research-grade DDPM-style model for forecasting **ocean current trajectories** and **plastic drift** using gridded inputs (e.g., zonal/meridional components on a lat–lon grid). The model learns to denoise future states conditioned on historical context, offering an efficient baseline for data-driven ocean forecasting. Despite its simplicity, it yields competitive trajectory accuracy and forms a clean foundation for extensions (physics-informed losses, equivariant backbones, multi-source fusion).
 
-✅ Compact and lightweight
+---
 
-✅ Works directly on grid-based current data
+## 🚀 Quickstart
 
-✅ Implements a denoising diffusion probabilistic model (DDPM-style)
-
-✅ Predicts drift paths with simple evaluation metrics
-
-📂 Project Structure
-Ocean-Drift-Diffusion/
-│── data/              # Ocean current datasets
-│── models/            # Diffusion model implementations
-│── results/           # Generated drift predictions
-│── utils/             # Data loading + preprocessing
-│── train.py           # Training loop
-│── predict.py         # Inference + visualization
-│── requirements.txt   # Dependencies
-│── README.md          # Project documentation
-
-⚙️ Installation
+### 1) Install
+```bash
+# Clone
 git clone https://github.com/yashthakur2006/Ocean-Drift-Diffusion.git
 cd Ocean-Drift-Diffusion
+
+# (Recommended) Create a virtual env
+python -m venv .venv && source .venv/bin/activate  # Windows: .venv\Scripts\activate
+
+# Install deps
 pip install -r requirements.txt
 
-🏃 Usage
-Training
-python train.py --epochs 50 --lr 1e-4
-
-Prediction
-python predict.py --input data/sample_currents.npy
-
-📊 Results
-
-Example prediction of ocean plastic drift:
-
-📑 Citation
-
-If you find this work useful, please cite:
-
-@article{thakur2025oceandrift,
-  title={Ocean Drift Diffusion: A Lightweight Spatiotemporal Diffusion Model for Predicting Ocean Currents},
-  author={Thakur, Yash},
-  journal={arXiv preprint arXiv:pending},
-  year={2025}
-}
-
-⭐ Support
-
-If you like this project, please consider starring ⭐ the repo to support ongoing research.
+# (Optional) GPU-enabled PyTorch (adjust CUDA version as needed)
+# pip install torch --index-url https://download.pytorch.org/whl/cu121
